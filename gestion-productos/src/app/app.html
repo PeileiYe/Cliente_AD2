@@ -5,13 +5,16 @@
 
         <nav>
             <a href="#" class="text-white text-decoration-none me-3">Inicio</a>
-             <a href="#" class="text-white text-decoration-none">Contacto</a>
+            <a href="#" class="text-white text-decoration-none">Contacto</a>
         </nav>
     </div>
 </header>
 
 <!--CONTENIDO PRINCIPAL-->
 <main class="container mb-5">
+    <app-product-form (productoCreado)="onProductoCreado($event)">
+    </app-product-form>
+    
     <app-product-list></app-product-list>
 </main>
 

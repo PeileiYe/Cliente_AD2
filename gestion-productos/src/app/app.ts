@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ProductService,Product } from './services/product';
-import { ProductList } from './components/product-list/product-list';
+import { ProductListComponent } from './components/product-list/product-list';
+import { ProductFormComponent } from './components/product-form/product-form';
 
 
 @Component({
   selector: 'app-root',
-  imports: [ProductList],
+  imports: [ProductListComponent, ProductFormComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -19,5 +20,9 @@ export class App {
       (datos: Product[]) => {
         console.log('productos cargados de API', datos)
       })
+  }
+
+  onProductoCreado (product: any){
+    console.log('Producto recibido: ', product)
   }
 }

@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { ProductService, Product} from '../../services/product';
-import { ProductCard } from '../product-card/product-card';
+import { ProductCardComponent } from '../product-card/product-card';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductCard],
+  imports: [ProductCardComponent],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
-export class ProductList {
+export class ProductListComponent {
 
   productos: Product[] = []
 
