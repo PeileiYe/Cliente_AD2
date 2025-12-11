@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductService, Product} from '../../services/product';
+import { ProductService, Product } from '../../services/product';
 import { ProductCardComponent } from '../product-card/product-card';
 
 @Component({
@@ -12,11 +12,11 @@ export class ProductListComponent {
 
   productos: Product[] = []
 
-  constructor(private productService: ProductService){
-    this.productService.cargarProductos().subscribe
-      (datos => {
-        this.productos = datos;
-        console.log('productos recibidos', datos)
-      })
+  constructor(private productService: ProductService) {
+    
+    this.productService.productos$.subscribe(productos => {
+      this.productos = productos;
+      console.log('Productos recibidos:', productos);
+    });
   }
 }

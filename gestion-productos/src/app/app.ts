@@ -14,15 +14,11 @@ import { ProductFormComponent } from './components/product-form/product-form';
 export class App {
   protected readonly title = signal('gestion-proyecto');
 
-  constructor(private productService: ProductService){
-    this.productService.cargarProductos().subscribe(
+ constructor(private productService: ProductService) {
+  this.productService.cargarProductos();
+}
 
-      (datos: Product[]) => {
-        console.log('productos cargados de API', datos)
-      })
-  }
-
-  onProductoCreado (product: any){
-    console.log('Producto recibido: ', product)
+  onProductoCreado(producto: any) {
+    this.productService.agregarProducto(producto);
   }
 }
