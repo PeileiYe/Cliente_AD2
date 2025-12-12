@@ -25,7 +25,7 @@ export class ProductService {
   private productosOriginales: Product[] = [];
 
   constructor(private http: HttpClient) {
-    
+
   }
 
   cargarProductos() {
@@ -41,7 +41,7 @@ export class ProductService {
   agregarProducto(datos: any) {
 
     const nuevoProducto: Product = {
-      _id: crypto.randomUUID(),
+      _id: crypto.randomUUID(),   // Generamos un ID único (trampilla)
       name: datos.name,
       description: datos.description,
       price: datos.price,
@@ -50,9 +50,14 @@ export class ProductService {
       active: datos.active
     };
 
+    // Añadimos el nuevo producto al principio de la lista
     this.productosOriginales = [nuevoProducto, ...this.productosOriginales];
+
+    // Emitimos la nueva lista para que Angular actualice la vista
     this.productosSubject.next(this.productosOriginales);
   }
+
+
 
   eliminarProducto(id: string) {
     this.productosOriginales = this.productosOriginales.filter(p => p._id !== id);
