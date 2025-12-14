@@ -22,10 +22,27 @@
 
 <!--CONTENIDO PRINCIPAL-->
 <main class="container mb-5">
-    <app-product-form (productoCreado)="onProductoCreado($event)">
-    </app-product-form>
-    <app-product-filter></app-product-filter>
-    <app-product-list></app-product-list>
+
+  <!-- Formulario para añadir productos -->
+  <app-product-form
+    class="mb-4"
+    (productoCreado)="onProductoCreado($event)">
+  </app-product-form>
+
+  <div class="row">
+
+    <!-- Filtro izquierda ancho 20%  -->
+    <aside class="col-12 col-md-2">
+      <app-product-filter></app-product-filter>
+    </aside>
+
+    <!-- Lista de productos derecha ancho 80% -->
+    <section class="col-12 col-md-10">
+      <app-product-list></app-product-list>
+    </section>
+
+  </div>
+
 </main>
 
 <!--FOOTER-->
