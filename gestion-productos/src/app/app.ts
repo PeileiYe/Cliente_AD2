@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { ProductService,Product } from './services/product';
 import { ProductListComponent } from './components/product-list/product-list';
 import { ProductFormComponent } from './components/product-form/product-form';
-
+import { ProductFilterComponent } from './components/product-filter/product-filter';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [ProductListComponent, ProductFormComponent],
+  imports: [CommonModule, ProductFilterComponent,ProductListComponent, ProductFormComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
